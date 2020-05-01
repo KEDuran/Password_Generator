@@ -5,3 +5,5 @@ var lowercase = "abcdefghijklmnopqrstuvwxyz";
 var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 // Here I have declared the numeric variable.
 var numeric = "0123456789";
+// Here I have declared the special character variable.
+var specialcharacter = "!#$%&'()*+,-./:;<=>?@[]^_`{|}~";
