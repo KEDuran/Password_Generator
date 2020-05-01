@@ -17,3 +17,5 @@ var lowercasePrompt = confirm(
 var uppercasePrompt = confirm(
 	"Do you want to include uppercase letters in your password?"
 );
+//Here is the numeric prompt variable.
+var numericPrompt = confirm("Do you want to include numbers in your password?");
