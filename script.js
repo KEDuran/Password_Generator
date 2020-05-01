@@ -26,6 +26,6 @@ var specialcharacterPrompt = confirm(
 	"Do you want to include special characters in your password?"
 );
 //Here is the password length prompt variable.
-var specialcharacterPrompt = confirm(
+var passwordlengthPrompt = confirm(
 	"Please enter how many characters long would you like your password to be. Min characters allowed= 8 ; Max characters allowed 128."
 );
