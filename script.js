@@ -10,6 +10,7 @@ var specialcharacter = "!#$%&'()*+,-./:;<=>?@[]^_`{|}~";
 // Here I have declared the password length variable that restricts character entry to anywhere between 8 - 128 characters.
 var passwordLength = Math.min(Math.max(parseInt(passwordLength), 8), 128);
 
+// The prompts() function applied below groups all password criteria prompt variables into a single function, which will be triggered once the user clicks the "Generate Password button" in the index.html file.
 function prompts() {
 	//All PROMPT VARIABLES - The variables listed below will prompt the user to select which password criteria they would lik to include in their password.
 	//Here is the uppercase prompt variable.
