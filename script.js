@@ -23,3 +23,7 @@ var numericPrompt = confirm("Do you want to include numbers in your password?");
 var specialcharacterPrompt = confirm(
 	"Do you want to include special characters in your password?"
 );
+//Here is the password length prompt variable.
+var specialcharacterPrompt = confirm(
+	"How many characters long would you like your password to be?"
+);
