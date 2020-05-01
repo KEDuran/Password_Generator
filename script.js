@@ -19,3 +19,7 @@ var uppercasePrompt = confirm(
 );
 //Here is the numeric prompt variable.
 var numericPrompt = confirm("Do you want to include numbers in your password?");
+//Here is the special character prompt variable.
+var specialcharacterPrompt = confirm(
+	"Do you want to include special characters in your password?"
+);
