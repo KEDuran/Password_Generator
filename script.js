@@ -97,6 +97,9 @@ function prompts() {
 
 	/*If-statement that controls for the edge case that no password criteria is selected but the user still wants to generate a secure password. If the user does not 
 	select any password criteria, this if-statement will apply all password criteria when the generatePassword() function is invoked.*/
+
+	/*NOTE - If a password length is also not selected, the password length prompt variable listed below ensures a secure random password of at least 8 characters is generated*/
+
 	if (
 		lowercasePrompt === false &&
 		uppercasePrompt === false &&
@@ -111,13 +114,13 @@ function prompts() {
 			this.specialcharacter;
 		console.log(this.master);
 	}
-
-	/*The password length variable is dependent on the entry from the passwordlengthPrompt. The method below ensure that character length of the generated password remains in
-	the required 8 - 128 characters specified in this assignment.*/
+	/*The password length variable is dependent on the entry from the passwordlengthPrompt. The method below ensure that character length of the generated password remains
+	between the required 8 - 128 characters specified in this assignment.*/
 	this.passwordLength = Math.min(
 		Math.max(parseInt(passwordlengthPrompt), 8),
 		128
 	);
+
 	console.log(this.passwordLength);
 
 	// Here I declared the secure password variable that will be assigned the secure password value that will generate when the generatePassword() function is triggered.
