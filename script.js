@@ -81,6 +81,25 @@ function prompts() {
 	var passwordlengthPrompt = prompt(
 		"Please enter how many characters long would you like your password to be. Min characters allowed= 8 ; Max characters allowed 128."
 	);
+
+	/*If-statement that controls for the edge case that no password criteria is selected. If the user does not select any password criteria, this if-statement will
+	apply apply all password criteria when the generatePassword is invoked. The standard password length if a number of characters is not specified will set to 8 characters,
+	based on the passwordLength variable assignment that follows this if-statement.*/
+	if (
+		lowercasePrompt === false &&
+		uppercasePrompt === false &&
+		numericPrompt === false &&
+		specialcharacterPrompt === false
+	) {
+		this.master =
+			this.master +
+			this.lowercase +
+			this.uppercase +
+			this.numeric +
+			this.specialcharacter;
+		console.log(this.master);
+	}
+
 	// Since the password length variable is dependent on the entry from the passwordlengthPrompt, the variable assignment for passwordLength is defined below.
 	this.passwordLength = Math.min(
 		Math.max(parseInt(passwordlengthPrompt), 8),
