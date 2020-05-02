@@ -7,14 +7,32 @@ var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numeric = "0123456789";
 // Here I have declared the special character variable.
 var specialcharacter = "!#$%&'()*+,-./:;<=>?@[]^_`{|}~";
-// Here I have declared the password length variable that restricts character entry to anywhere between 8 - 128 characters. I placed a placehold interger of 8, but the full assignment logic for this variable is after the passwordlengthPrompt variable.
+/*Here I have declared the password length variable that restricts character entry to anywhere between 8 - 128 characters. 
+I placed a placehold interger of 8, but the full assignment logic for this variable is after the passwordlengthPrompt variable.*/
 var passwordLength = 8;
 // Here I have declared a master password variable with an empty string that will be used to append selected password criteria based on user selection.
 var master = "";
-// Here I have declared the secure password variable that will populate a secure password when the generatePassword() function is triggered.
-var securePassword = generatePassword();
 
-// The prompts() function applied below groups all password criteria prompt variables into a single function, which will be triggered once the user clicks the "Generate Password button" in the index.html file.
+/*The generatePassword() function will generate a secure password that follows the criteria selected by user from the prompts. 
+This function includes a for loop and establishes a new password variable that serves a local variable for this function.*/
+function generatePassword() {
+	// Declaring a local variable to apply to the below for loop.
+	var password = "";
+
+	for (var i = 0; i < this.passwordLength; i++) {
+		/*This statement will be used to populate the random password. Inititally, this statement will use Math.ramdom() to generate a random number 0-1 then multiply the 
+		generated random number by the the numerical length of the master variable determined by the user's selection criteria. This calculated value will then be applied
+		 to the chartAt() method, which will generate the character at the specified index. This will continue until the for password length variable in the for loop is met.*/
+		password =
+			password +
+			this.master.charAt(Math.floor(Math.random() * this.master.length));
+	}
+	console.log(password);
+	return password;
+}
+
+/*The prompts() function applied below groups all password criteria prompt variables into a single function, which will be triggered 
+once the user clicks the "Generate Password button" in the index.html file.*/
 function prompts() {
 	//All PROMPT VARIABLES - The variables listed below will prompt the user to select which password criteria they would lik to include in their password.
 	//Here is the uppercase prompt variable.
@@ -68,10 +86,8 @@ function prompts() {
 		Math.max(parseInt(passwordlengthPrompt), 8),
 		128
 	);
-	console.log(passwordLength);
-}
+	console.log(this.passwordLength);
 
-// The generatePassword() function will generate a secure password that follows the criteria selected by user from the prompts. This function includes a for loop and establishes a new password variable that serves a local variable for this function.
-function generatePassword() {
-	// enter for loop here
+	// Here I have declared the secure password variable that will populate a secure password when the generatePassword() function is triggered.
+	var securePassword = generatePassword();
 }
