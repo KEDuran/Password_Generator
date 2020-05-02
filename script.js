@@ -9,6 +9,8 @@ let numeric = "0123456789";
 let specialcharacter = "!#$%&'()*+,-./:;<=>?@[]^_`{|}~";
 // Here I have declared the password length variable that restricts character entry to anywhere between 8 - 128 characters.
 let passwordLength = Math.min(Math.max(parseInt(passwordLength), 8), 128);
+// Here I have declared a master password variable with an empty string that will be used to append selected password criteria based on user selection.
+let masterPassword = "";
 // Here I have declared the secure password variable that will populate a secure password when the generatePassword() function is triggered.
 let securePassword = generatePassword();
 
