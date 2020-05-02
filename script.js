@@ -7,8 +7,8 @@ var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numeric = "0123456789";
 // Here I have declared the special character variable.
 var specialcharacter = "!#$%&'()*+,-./:;<=>?@[]^_`{|}~";
-// Here I have declared the password length variable that restricts character entry to anywhere between 8 - 128 characters.
-var passwordLength = Math.min(Math.max(parseInt(passwordLength), 8), 128);
+// Here I have declared the password length variable that restricts character entry to anywhere between 8 - 128 characters. I placed a placehold interger of 8, but the full assignment logic for this variable is after the passwordlengthPrompt variable.
+var passwordLength = 8;
 // Here I have declared a master password variable with an empty string that will be used to append selected password criteria based on user selection.
 var master = "";
 // Here I have declared the secure password variable that will populate a secure password when the generatePassword() function is triggered.
@@ -63,6 +63,12 @@ function prompts() {
 	var passwordlengthPrompt = prompt(
 		"Please enter how many characters long would you like your password to be. Min characters allowed= 8 ; Max characters allowed 128."
 	);
+	// Since the password length variable is dependent on the entry from the passwordlengthPrompt, the variable assignment for passwordLength is defined below.
+	this.passwordLength = Math.min(
+		Math.max(parseInt(passwordlengthPrompt), 8),
+		128
+	);
+	console.log(passwordLength);
 }
 
 // The generatePassword() function will generate a secure password that follows the criteria selected by user from the prompts. This function includes a for loop and establishes a new password variable that serves a local variable for this function.
