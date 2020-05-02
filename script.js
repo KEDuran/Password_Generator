@@ -76,5 +76,17 @@ function prompts() {
 /*The generatePassword() function will generate a secure password that follows the criteria selected by user from the prompts. 
 This function includes a for loop and establishes a new password variable that serves a local variable for this function.*/
 function generatePassword() {
-	// enter for loop here
+	// Declaring a local variable to apply to the below for loop.
+	var password = "";
+
+	for (var i = 0; i < this.passwordLength; i++) {
+		/*This statement will be used to populate the random password. Inititally, this statement will use Math.ramdom() to generate a random number 0-1 then multiply the 
+		generated random number by the the numerical length of the master variable determined by the user's selection criteria. This calculated value will then be applied
+		 to the chartAt() method, which will generate the character at the specified index. This will continue until the for password length variable in the for loop is met.*/
+		password =
+			password +
+			this.master.charAt(Math.floor(Math.random() * this.master.length));
+	}
+	console.log(password);
+	return password;
 }
