@@ -42,15 +42,23 @@ function prompts() {
 		"Do you want to include numbers in your password?"
 	);
 
-	//If-statement that adds numerica criteria to master variable if selected. Using the this.notation to call global variables within a function.
+	//If-statement that adds numeric criteria to master variable if selected. Using the this.notation to call global variables within a function.
 	if (numericPrompt) {
 		this.master = this.master + this.numeric;
 		console.log(this.master);
 	}
+
 	//Here is the special character prompt variable.
 	var specialcharacterPrompt = confirm(
 		"Do you want to include special characters in your password?"
 	);
+
+	//If-statement that adds special character criteria to master variable if selected. Using the this.notation to call global variables within a function.
+	if (numericPrompt) {
+		this.master = this.master + this.specialcharacter;
+		console.log(this.master);
+	}
+
 	//Here is the password length prompt variable.
 	var passwordlengthPrompt = prompt(
 		"Please enter how many characters long would you like your password to be. Min characters allowed= 8 ; Max characters allowed 128."
