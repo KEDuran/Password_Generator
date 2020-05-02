@@ -21,6 +21,12 @@ function prompts() {
 	var lowercasePrompt = confirm(
 		"Do you want to include lowercase letters in your password?"
 	);
+
+	if (lowercasePrompt) {
+		this.master = this.master + this.lowercase;
+		console.log(this.master);
+	}
+
 	//Here is the uppercase prompt variable.
 	var uppercasePrompt = confirm(
 		"Do you want to include uppercase letters in your password?"
