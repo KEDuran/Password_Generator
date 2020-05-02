@@ -21,7 +21,7 @@ function prompts() {
 	var lowercasePrompt = confirm(
 		"Do you want to include lowercase letters in your password?"
 	);
-
+	//If-statement that adds lowercase criteria to master variable if selected. Using the this.notation to call global variables within a function.
 	if (lowercasePrompt) {
 		this.master = this.master + this.lowercase;
 		console.log(this.master);
@@ -31,6 +31,12 @@ function prompts() {
 	var uppercasePrompt = confirm(
 		"Do you want to include uppercase letters in your password?"
 	);
+
+	//If-statement that adds uppercase criteria to master variable if selected. Using the this.notation to call global variables within a function.
+	if (uppercasePrompt) {
+		this.master = this.master + this.uppercase;
+		console.log(this.master);
+	}
 	//Here is the numeric prompt variable.
 	var numericPrompt = confirm(
 		"Do you want to include numbers in your password?"
