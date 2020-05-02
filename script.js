@@ -41,6 +41,12 @@ function prompts() {
 	var numericPrompt = confirm(
 		"Do you want to include numbers in your password?"
 	);
+
+	//If-statement that adds numerica criteria to master variable if selected. Using the this.notation to call global variables within a function.
+	if (numericPrompt) {
+		this.master = this.master + this.numeric;
+		console.log(this.master);
+	}
 	//Here is the special character prompt variable.
 	var specialcharacterPrompt = confirm(
 		"Do you want to include special characters in your password?"
