@@ -9,6 +9,8 @@ let numeric = "0123456789";
 let specialcharacter = "!#$%&'()*+,-./:;<=>?@[]^_`{|}~";
 // Here I have declared the password length variable that restricts character entry to anywhere between 8 - 128 characters.
 let passwordLength = Math.min(Math.max(parseInt(passwordLength), 8), 128);
+// Here I have declared the secure password variable that will populate a secure password when the generatePassword() function is triggered.
+let securePassword = generatePassword();
 
 // The prompts() function applied below groups all password criteria prompt variables into a single function, which will be triggered once the user clicks the "Generate Password button" in the index.html file.
 function prompts() {
