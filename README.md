@@ -1,6 +1,6 @@
 # Homework 3 - Password_Generator
 
-The main goal for this homework assignment was to develop an application that would generate a random password based on pre-selected password critieria selected by an employee in need of a sensitive password. As specified in the instructional README.md file, the app must run on a browser and have a styled, responsive user interface that will dynamically resize to accomodate changes in screen size.
+The main goal for this homework assignment is to develop an application that would generate a random password based on pre-selected password critieria selected by an employee in need of a sensitive password. As specified in the instructional README.md file provide by the instructor (Antonio), the app must run on a browser and have a styled, responsive user interface that will dynamically resize to accomodate changes in screen size.
 
 ## User Story for Assignment
 
@@ -42,4 +42,4 @@ In order to help ensure and validate that a secure password will be generated wi
 
 ### Maintaining Required Character Length
 
-The password length variable that I declared in the script.js file ensures that the secure password will have a total character length between 8 to 128, even if the user does enters a value outside of this required character range.
+The password length variable that I declared in the script.js file ensures that the secure password will have a total character length between 8 to 128, even if the user does enters a value outside of this required character range. Note that if the user choses to not enter a specified character length, the Math() method defining the variable will automatically generate an 8-character long password.
