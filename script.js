@@ -54,7 +54,7 @@ function prompts() {
 	);
 
 	//If-statement that adds special character criteria to master variable if selected. Using the this.notation to call global variables within a function.
-	if (numericPrompt) {
+	if (specialcharacterPrompt) {
 		this.master = this.master + this.specialcharacter;
 		console.log(this.master);
 	}
