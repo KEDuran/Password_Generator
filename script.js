@@ -90,4 +90,7 @@ function prompts() {
 
 	// Here I have declared the secure password variable that will populate a secure password when the generatePassword() function is triggered.
 	var securePassword = generatePassword();
+
+	//This is the statement that will output the generated password into UI.
+	document.getElementById("securepass").innerHTML = securePassword;
 }
