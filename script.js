@@ -36,3 +36,8 @@ function prompts() {
 		"Please enter how many characters long would you like your password to be. Min characters allowed= 8 ; Max characters allowed 128."
 	);
 }
+
+// The generatePassword() function will generate a secure password that follows the criteria selected by user from the prompts. This function includes a for loop and establishes a new password variable that serves a local variable for this function.
+function generatePassword() {
+	// enter for loop here
+}
