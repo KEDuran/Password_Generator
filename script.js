@@ -25,17 +25,16 @@ the prompt() function. This function includes a for loop and establishes a new l
 that will define the securePassword variable listed at the end of the prompt() function.*/
 function generatePassword() {
 	// Declaring a local variable to apply to the for loop below. This is an empty string variable that will allow us to append selected criteria generated from the for loop.
-	var password = "";
+	let password = "";
 
 	// For loop starts here. Index is set to 0 and will incrememnt by one until the password length parameter is met.
-	for (var i = 0; i < this.passwordLength; i++) {
+	for (var i = 0; i < passwordLength; i++) {
 		/*This statement will be used to generate the random password. Inititally, this statement will use Math.ramdom() to generate a random number 0-1 then multiply that 
 		generated random number by the the numerical length of the character length determined by the user's selection criteria. This calculated value will then be applied
 		 to the chartAt() method, which will generate the character that falls on the index value of the generated number from the Math.floor() and Math.random method. 
 		 This will continue until the for password length variable in the for loop is met.*/
 		password =
-			password +
-			this.master.charAt(Math.floor(Math.random() * this.master.length));
+			password + master.charAt(Math.floor(Math.random() * master.length));
 	}
 	console.log(password);
 	return password;
@@ -54,8 +53,8 @@ function prompts() {
 	);
 	//If-statement that adds lowercase criteria to master variable if selected. Using the this.notation to call global variables within a function.
 	if (lowercasePrompt) {
-		this.master = this.master + this.lowercase;
-		console.log(this.master);
+		master = master + lowercase;
+		console.log(master);
 	}
 
 	//Here is the uppercasePrompt variable.
@@ -65,8 +64,8 @@ function prompts() {
 
 	//If-statement that adds uppercase criteria to master variable if selected. Using the this.notation to call global variables within a function.
 	if (uppercasePrompt) {
-		this.master = this.master + this.uppercase;
-		console.log(this.master);
+		master = master + uppercase;
+		console.log(master);
 	}
 	//Here is the numericPrompt variable.
 	var numericPrompt = confirm(
@@ -75,8 +74,8 @@ function prompts() {
 
 	//If-statement that adds numeric criteria to master variable if selected. Using the this.notation to call global variables within a function.
 	if (numericPrompt) {
-		this.master = this.master + this.numeric;
-		console.log(this.master);
+		master = master + numeric;
+		console.log(master);
 	}
 
 	//Here is the specialcharacterPrompt variable.
@@ -86,8 +85,8 @@ function prompts() {
 
 	//If-statement that adds special character criteria to master variable if selected. Using the this.notation to call global variables within a function.
 	if (specialcharacterPrompt) {
-		this.master = this.master + this.specialcharacter;
-		console.log(this.master);
+		master = master + specialcharacter;
+		console.log(master);
 	}
 
 	//Here is the passwordlengthPrompt variable.
@@ -106,22 +105,14 @@ function prompts() {
 		numericPrompt === false &&
 		specialcharacterPrompt === false
 	) {
-		this.master =
-			this.master +
-			this.lowercase +
-			this.uppercase +
-			this.numeric +
-			this.specialcharacter;
-		console.log(this.master);
+		master = master + lowercase + uppercase + numeric + specialcharacter;
+		console.log(master);
 	}
 	/*The password length variable is dependent on the entry from the passwordlengthPrompt. The method below ensure that character length of the generated password remains
 	between the required 8 - 128 characters specified in this assignment.*/
-	this.passwordLength = Math.min(
-		Math.max(parseInt(passwordlengthPrompt), 8),
-		128
-	);
+	passwordLength = Math.min(Math.max(parseInt(passwordlengthPrompt), 8), 128);
 
-	console.log(this.passwordLength);
+	console.log(passwordLength);
 
 	// Here I declared the secure password variable that will be assigned the secure password value that will generate when the generatePassword() function is triggered.
 	var securePassword = generatePassword();
