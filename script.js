@@ -20,9 +20,16 @@ var passwordLength = 0;
 The generatePassword() function below shows why I created this empty string variable.*/
 var master = "";
 
-/*The generatePassword() function will generate a secure password that follows the criteria selected by the user from the confirm/prompt questions listed in 
-the prompt() function. This function includes a for loop and establishes a new local password variable that will be use to return the generated secure password 
-that will define the securePassword variable listed at the end of the prompt() function.*/
+/*This buildCriteria function*/
+function buildCriteria(question, criteria) {
+	let choice = confirm(question);
+	if (choice) {
+		return criteria;
+	} else {
+		return "";
+	}
+}
+
 function generatePassword() {
 	// Declaring a local variable to apply to the for loop below. This is an empty string variable that will allow us to append selected criteria generated from the for loop.
 	let password = "";
@@ -43,56 +50,33 @@ function generatePassword() {
 /*The prompts() function groups all password criteria promptvariables into a single function, which will be triggered once the user clicks the "Generate Password" button 
 in the index.html file.*/
 function prompts() {
-	/*All PROMPT VARIABLES - The variables listed below will prompt the user to select which password criteria they would like to include in their password. 
-	Based on the user's selection, each prompt variable has an if-statement that will determine whether each criteria is appended into the master variable defined
-	in the above variable section.*/
-
-	//Here is the lowercasePrompt variable.
-	var lowercasePrompt = confirm(
-		"Do you want to include LOWERCASE letters in your password?"
+	master += buildCriteria(
+		"Do you want to include LOWERCASE letters in your password?",
+		lowercase
 	);
-	//If-statement that adds lowercase criteria to master variable if selected. Using the this.notation to call global variables within a function.
-	if (lowercasePrompt) {
-		master = master + lowercase;
-		console.log(master);
-	}
+	console.log(master);
 
-	//Here is the uppercasePrompt variable.
-	var uppercasePrompt = confirm(
-		"Do you want to include UPPERCASE letters in your password?"
+	master += buildCriteria(
+		"Do you want to include UPPERCASE letters in your password?",
+		uppercase
 	);
+	console.log(master);
 
-	//If-statement that adds uppercase criteria to master variable if selected. Using the this.notation to call global variables within a function.
-	if (uppercasePrompt) {
-		master = master + uppercase;
-		console.log(master);
-	}
-	//Here is the numericPrompt variable.
-	var numericPrompt = confirm(
-		"Do you want to include NUMBERS in your password?"
+	master += buildCriteria(
+		"Do you want to include NUMBERS in your password?",
+		numeric
 	);
+	console.log(master);
 
-	//If-statement that adds numeric criteria to master variable if selected. Using the this.notation to call global variables within a function.
-	if (numericPrompt) {
-		master = master + numeric;
-		console.log(master);
-	}
-
-	//Here is the specialcharacterPrompt variable.
-	var specialcharacterPrompt = confirm(
-		"Do you want to include SPECIAL CHARACTERS in your password?"
+	master += buildCriteria(
+		"Do you want to include SPECIAL CHARACTERS in your password?",
+		specialcharacter
 	);
-
-	//If-statement that adds special character criteria to master variable if selected. Using the this.notation to call global variables within a function.
-	if (specialcharacterPrompt) {
-		master = master + specialcharacter;
-		console.log(master);
-	}
+	console.log(master);
 
 	/**This while loop with require the user to enter the number of characters they would like their secure password to include. Since the passwordLength variable was intialized
-	 with a value of 0, user will immediately recieve an initial prompt to enter a password length after the special character prompt. If the user does not enter a password within
-	 the range of allowed number of characters, they will continue to recieve the prompt below.*/
-
+	with a value of 0, user will immediately recieve an initial prompt to enter a password length after the special character prompt. If the user does not enter a password within
+	the range of allowed number of characters, they will continue to recieve the prompt below.*/
 	while (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
 		passwordLength = parseInt(
 			prompt(
@@ -112,12 +96,7 @@ function prompts() {
 
 	/*NOTE - If a password length is also not selected, the password length prompt variable listed below ensures a secure random password of at least 8 characters is generated*/
 
-	if (
-		lowercasePrompt === false &&
-		uppercasePrompt === false &&
-		numericPrompt === false &&
-		specialcharacterPrompt === false
-	) {
+	if (master === "") {
 		master = master + lowercase + uppercase + numeric + specialcharacter;
 		console.log(master);
 	}
@@ -127,4 +106,8 @@ function prompts() {
 
 	//This is the statement that will output the generated password into the app's user interface.
 	document.getElementById("securepass").innerHTML = securePassword;
+	//
+
+	passwordLength = 0;
+	master = "";
 }
