@@ -38,8 +38,8 @@ THEN the password is either displayed in an alert or written to the page
 
 ### Validating Password Criteria
 
-In order to help ensure and validate that a secure password will be generated with at least one password criteria variable, I added a multi-parameter if-statment that would generate a secure password that includes lowercase, uppercase, numbers, and special characters as long as the user identified the number of characters that they want to be included in their secure password.
+In order to help ensure and validate that a secure password will be generated with at least one password criteria variable, I added a multi-parameter if-statment that would generate a secure password that includes lowercase, uppercase, numbers, and special characters even if the user does not select any password criteria.
 
-### Maintaining Required Character Length
+### Requiring Valid Password Length Entries
 
-The password length variable that I declared in the script.js file ensures that the secure password will have a total character length between 8 to 128, even if the user does enters a value outside of this required character range. Note that if the user choses to not enter a specified character length, the Math() method defining the variable will automatically generate an 8-character long password.
+I applied a while loop to the password length variable that ensures the user enters a total character length between 8 to 128 by continuously populating an alert that directs the user to enter a valid password length every time an invalid numerical value is enter. The prompts() function will not complete until a valid password length is entered, which will cause the generatePassword() function to not run nor populate a secure password.
