@@ -14,7 +14,7 @@ var specialcharacter = "!#$%&'()*+,-./:;<=>?@[]^_`{|}~";
 /*Here I declared the password length variable that restricts the allowable number of characters that will generate to be anywhere between 8 - 128 characters.
 The logic applied to restrict character length can be found after the prompt() function. I placed a placehold interger of 8, but the full assignment logic for 
 this variable is after the passwordlengthPrompt variable.*/
-var passwordLength = 8;
+var passwordLength = 0;
 
 /*Here I declared a master password variable with an empty string that will be used to append selected password criteria options based on user selection.
 The generatePassword() function below shows why I created this empty string variable.*/
@@ -89,12 +89,25 @@ function prompts() {
 		console.log(master);
 	}
 
-	//Here is the passwordlengthPrompt variable.
-	var passwordlengthPrompt = prompt(
-		"How many characters do you want in you password? Min characters allowed= 8 ; Max characters allowed 128."
-	);
+	/**This while loop with require the user to enter the number of characters they would like their secure password to include. Since the passwordLength variable was intialized
+	 with a value of 0, user will immediately recieve an initial prompt to enter a password length after the special character prompt. If the user does not enter a password within
+	 the range of allowed number of characters, they will continue to recieve the prompt below.*/
 
-	/*If-statement that controls for the edge case that no password criteria is selected but the user still wants to generate a secure password. If the user does not 
+	while (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
+		passwordLength = parseInt(
+			prompt(
+				"Please select how many characters you want in your password. Min = 8 characters; Max = 128 characters"
+			)
+		);
+		if (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
+			alert(
+				"Not within the range of allowable password length. Please try again."
+			);
+		}
+	}
+	console.log(passwordLength);
+
+	/* This if-statement controls for the edge case that no password criteria is selected but the user still wants to generate a secure password. If the user does not 
 	select any password criteria, this if-statement will apply all password criteria when the generatePassword() function is invoked.*/
 
 	/*NOTE - If a password length is also not selected, the password length prompt variable listed below ensures a secure random password of at least 8 characters is generated*/
@@ -108,11 +121,6 @@ function prompts() {
 		master = master + lowercase + uppercase + numeric + specialcharacter;
 		console.log(master);
 	}
-	/*The password length variable is dependent on the entry from the passwordlengthPrompt. The method below ensure that character length of the generated password remains
-	between the required 8 - 128 characters specified in this assignment.*/
-	passwordLength = Math.min(Math.max(parseInt(passwordlengthPrompt), 8), 128);
-
-	console.log(passwordLength);
 
 	// Here I declared the secure password variable that will be assigned the secure password value that will generate when the generatePassword() function is triggered.
 	var securePassword = generatePassword();
